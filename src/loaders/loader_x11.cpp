@@ -89,4 +89,4 @@ void libx11_loader::CleanUp(bool unload) {
 
 }
 
-std::shared_ptr<libx11_loader> g_x11(new libx11_loader("libX11.so.6"));
+std::shared_ptr<libx11_loader> g_x11(new libx11_loader("@libX11@/lib/libX11.so.6"));

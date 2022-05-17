@@ -24,11 +24,9 @@ std::istream& get_uncommented_line(std::istream& is, std::string &line)
 void parse_pciids()
 {
     std::ifstream file;
-    file.open("/usr/share/hwdata/pci.ids");
+    file.open("@hwdata@/share/hwdata/pci.ids");
     if (file.fail()){
-        file.open("/usr/share/misc/pci.ids");
-        if (file.fail())
-            SPDLOG_ERROR("can't find file pci.ids");
+        SPDLOG_ERROR("can't find file pci.ids");
     }
 
     std::string line;

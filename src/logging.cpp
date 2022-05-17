@@ -22,7 +22,14 @@ string exec(string command) {
 #endif
     std::array<char, 128> buffer;
     std::string result;
+
+    char* originalPath = getenv("PATH");
+    setenv("PATH", "@path@", 1);
+
     std::unique_ptr<FILE, decltype(&pclose)> pipe(popen(command.c_str(), "r"), pclose);
+
+    setenv("PATH", originalPath, 1);
+
     if (!pipe) {
       return "popen failed!";
     }

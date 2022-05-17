@@ -152,7 +152,7 @@ bool dbus_manager::get_media_player_metadata(metadata& meta, std::string name) {
 }
 
 bool dbus_manager::init_internal() {
-    if (!m_dbus_ldr.IsLoaded() && !m_dbus_ldr.Load("libdbus-1.so.3")) {
+    if (!m_dbus_ldr.IsLoaded() && !m_dbus_ldr.Load("@libdbus@/lib/libdbus-1.so.3")) {
         SPDLOG_ERROR("Could not load libdbus-1.so.3");
         return false;
     }
